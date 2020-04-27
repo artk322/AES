@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AES</title>
+  <link rel="icon" type="image/x-icon" href="./src/favicon.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="0">
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container">
+      <a class="navbar-brand" href="#">AES CIPHER</a>
+      <ul class="nav" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" href="#ecryption">Encryption</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div id="ecryption" class="jumbotron my-5">
+      <h2 class="h2 text-center mb-4">AES CIPHER ECB MODE</h2>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+          <form action="" class="form">
+            <div class="form-group">
+              <label class="h5" for="password">Key:</label>
+              <textarea rows="3" type="text" id="password" class="form-control" placeholder="Enter your key..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="h5" for="inputtext">Plaintext:</label>
+              <textarea rows="3" type="text" id="inputtext" class="form-control" placeholder="Enter your Plaintext..."></textarea>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <button type="button" class="btn btn-warning btn-lg btn-block" onclick="btn_encode()">Encrypt</button>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <button type="button" class="btn btn-dark btn-lg btn-block" onclick="btn_decode()">Decrypt</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-12 border-left">
+          <form>
+            <div class="form-group">
+              <label class="h5" for="encodedtext">Encryption output:</label>
+              <textarea name="" id="encodedtext" rows="3" class="form-control bg-light" placeholder="" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label class="h5" for="decodedtext">Decryption output:</label>
+              <textarea name="" id="decodedtext" rows="3" class="form-control bg-light" placeholder="" readonly></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="about" class="my-5">
+      <div class="container">
+        <h2 class="h2 text-center mb-4">About AES</h2>
+        <hr>
+        <div class="row justify-content-center">
+          <div class="col-lg-11 col-md-12 col-sm-12 col-12">
+            <div>
+              <h4 class="h4">What is AES?</h4>
+              <p>
+                Advanced Encryption Standard (AES), also known as Rijndael, is a symmetric block encryption algorithm (128 — bit block size, 128/192/256-bit key) adopted as an encryption standard by the US government based on the results of AES competition. This algorithm
+                is well analyzed and is now widely used, as it was with its predecessor DES.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+          <div class="col-lg-11 col-md-12 col-sm-12 col-12">
+            <div>
+              <h4 class="h4">Definitions</h4>
+              <table class="table table-striped table-hover border">
+                <tbody>
+                  <tr>
+                    <th class="border-right" scope="row">Block</th>
+                    <td>the sequence of bits that make up input, output, State, and Round Key. Block can also be understood as a sequence of bytes</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Cipher Key</th>
+                    <td>a secret cryptographic key that is used by the Key Expansion procedure to produce a set of keys for rounds (Round Keys); it can be represented as a rectangular array of bytes with four rows and Nk columns</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Ciphertext</th>
+                    <td>output data of the encryption algorithm</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Key Expansion</th>
+                    <td>procedure for generating Round Keys from Cipher Key</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Round Key</th>
+                    <td>Round Keys are obtained from Cipher Key using the Key Expansion procedure. They are applied to State for encryption and decryption</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">State</th>
+                    <td>intermediate encryption result, which can be represented as a rectangular array of bytes with 4 rows and Nb columns</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">S-box</th>
+                    <td>a non-linear substitution table used in multiple byte substitution transformations and in the key extension procedure for one-to-one byte value substitution. The pre-calculated s-Box can be seen below</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Nb</th>
+                    <td>the number of columns (32-bit words), State the condition. For AES, NB = 4</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Nk</th>
+                    <td>the number of 32-bit words that make up the cipher key. For AES, NK = 4, 6, or 8</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Nr</th>
+                    <td>number of rounds, NK NK and NB. For AES, NR = 10, 12, 14</td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">Rcon[]</th>
+                    <td>an array with 32 32-bit words and is a constant for a given round.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+          <div class="col-lg-11 col-md-12 col-sm-12 col-12 justify-content-center">
+            <div>
+              <h4 class="h4">SBOX Table</h4>
+              <div class="code-container text-center">
+                <code>
+                0x63 0x7c 0x77 0x7b 0xf2 0x6b 0x6f 0xc5 0x30 0x01 0x67 0x2b 0xfe 0xd7 0xab 0x76<br>
+                0xca 0x82 0xc9 0x7d 0xfa 0x59 0x47 0xf0 0xad 0xd4 0xa2 0xaf 0x9c 0xa4 0x72 0xc0<br>
+                0xb7 0xfd 0x93 0x26 0x36 0x3f 0xf7 0xcc 0x34 0xa5 0xe5 0xf1 0x71 0xd8 0x31 0x15<br>
+                0x04 0xc7 0x23 0xc3 0x18 0x96 0x05 0x9a 0x07 0x12 0x80 0xe2 0xeb 0x27 0xb2 0x75<br>
+                0x09 0x83 0x2c 0x1a 0x1b 0x6e 0x5a 0xa0 0x52 0x3b 0xd6 0xb3 0x29 0xe3 0x2f 0x84<br>
+                0x53 0xd1 0x00 0xed 0x20 0xfc 0xb1 0x5b 0x6a 0xcb 0xbe 0x39 0x4a 0x4c 0x58 0xcf<br>
+                0xd0 0xef 0xaa 0xfb 0x43 0x4d 0x33 0x85 0x45 0xf9 0x02 0x7f 0x50 0x3c 0x9f 0xa8<br>
+                0x51 0xa3 0x40 0x8f 0x92 0x9d 0x38 0xf5 0xbc 0xb6 0xda 0x21 0x10 0xff 0xf3 0xd2<br>
+                0xcd 0x0c 0x13 0xec 0x5f 0x97 0x44 0x17 0xc4 0xa7 0x7e 0x3d 0x64 0x5d 0x19 0x73<br>
+                0x60 0x81 0x4f 0xdc 0x22 0x2a 0x90 0x88 0x46 0xee 0xb8 0x14 0xde 0x5e 0x0b 0xdb<br>
+                0xe0 0x32 0x3a 0x0a 0x49 0x06 0x24 0x5c 0xc2 0xd3 0xac 0x62 0x91 0x95 0xe4 0x79<br>
+                0xe7 0xc8 0x37 0x6d 0x8d 0xd5 0x4e 0xa9 0x6c 0x56 0xf4 0xea 0x65 0x7a 0xae 0x08<br>
+                0xba 0x78 0x25 0x2e 0x1c 0xa6 0xb4 0xc6 0xe8 0xdd 0x74 0x1f 0x4b 0xbd 0x8b 0x8a<br>
+                0x70 0x3e 0xb5 0x66 0x48 0x03 0xf6 0x0e 0x61 0x35 0x57 0xb9 0x86 0xc1 0x1d 0x9e<br>
+                0xe1 0xf8 0x98 0x11 0x69 0xd9 0x8e 0x94 0x9b 0x1e 0x87 0xe9 0xce 0x55 0x28 0xdf<br>
+                0x8c 0xa1 0x89 0x0d 0xbf 0xe6 0x42 0x68 0x41 0x99 0x2d 0x0f 0xb0 0x54 0xbb 0x16<br>
+              </code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+          <div class="col-lg-11 col-md-12 col-sm-12 col-12">
+            <div>
+              <h4 class="h4">Auxiliary procedures</h4>
+              <table class="table table-striped table-hover border">
+                <tbody>
+                  <tr>
+                    <th class="border-right" scope="row">AddRoundKey()</th>
+                    <td>transformation during encryption and reverse encryption, in which the Round Key XOR'itsya c State. The length of the RoundKey is equal to the size of State (that is, if <i>Nb</i> = 4, then the length of the RoundKey is 128 bits or
+                      16 bytes)
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">InvMixColumns()</th>
+                    <td>transformation during decryption, which is the reverse of MixColumns()
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">MixColumns()</th>
+                    <td>an encryption transformation that takes all State columns and mixes their data (independently of each other) to get new columns
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">ShiftRows()</th>
+                    <td>encryption transformations that process State by Cycling the last three rows of State by different values
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="border-right" scope="row">SubBytes()</th>
+                    <td>encryption transformations that process State using a non-linear byte substitution table (S-box), applying it independently to each state byte
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function unpack(data) {
+      let str = "";
+      for (let x = 0; x < data.length; x++) {
+        str += String.fromCharCode(data[x]);
+      }
+      return str;
+    }
+
+    function pack(msg) {
+      let block_count = Math.floor(msg.length / 16) + 1;
+      let data = new Array(block_count * 16);
+      let block = new Array(16);
+      let cx = 0;
+      for (let x = 0; x < block_count; x++) {
+
+        for (let i = 0; i < 16; i++) {
+          block[i] = (cx < msg.length) ? msg.charCodeAt(cx) : 3;
+          cx++;
+        }
+
+        for (let i = 0; i < 16; i++)
+          data[i + x * 16] = block[i];
+      }
+      return data;
+    }
+
+    function hash_password(password) {
+      let key_val = Sha256.hash(password);
+      let key = new Array(32);
+      for (let i = 0; i < 32; i++) {
+        key[i] = key_val.charCodeAt(i);
+      }
+      return key;
+    }
+
+    function encode(msg, password) {
+      let block_count = Math.floor(msg.length / 16) + 1;
+      let data = new Array(block_count * 16);
+      let block = new Array(16);
+
+
+      let cx = 0;
+      for (let x = 0; x < block_count; x++) {
+
+        for (let i = 0; i < 16; i++) {
+          block[i] = (cx < msg.length) ? msg.charCodeAt(cx) : 3;
+          cx++;
+        }
+
+
+        AES_Init();
+        const key = hash_password(password);
+        AES_ExpandKey(key);
+        AES_Encrypt(block, key);
+        AES_Done();
+
+
+        for (let i = 0; i < 16; i++)
+          data[i + x * 16] = block[i];
+      }
+
+      return data;
+    }
+
+    function decode(data, password) {
+      let msg = "";
+      let block_count = Math.floor(data.length / 16) + 1;
+      let block = new Array(16);
+
+      let cx = 0;
+      for (let x = 0; x < block_count; x++) {
+        for (let i = 0; i < 16; i++) {
+          block[i] = data[cx++];
+
+        }
+
+        AES_Init();
+        const key = hash_password(password);
+        AES_ExpandKey(key);
+        AES_Decrypt(block, key);
+        AES_Done();
+
+        for (let i = 0; i < 16; i++) {
+          if (block[i] == 3) return msg;
+          msg += String.fromCharCode(block[i]);
+        }
+      }
+      return msg;
+    }
+
+    function btn_encode() {
+      const password = document.getElementById('password').value;
+      const msg = document.getElementById('inputtext').value;
+      const data = encode(msg, password);
+      document.getElementById('encodedtext').value = Base64.encode(unpack(data));
+    }
+
+    function btn_decode() {
+      const password = document.getElementById('password').value;
+      const data = pack(Base64.decode(document.getElementById('encodedtext').value));
+      document.getElementById('decodedtext').value = decode(data, password);
+    }
+  </script>
+  <script type="text/javascript" src="src/js/aes.js"></script>
+  <script type="text/javascript" src="src/js/sha256.js"></script>
+  <script type="text/javascript" src="src/js/base64.js"></script>
+</body>
+
+</html>
