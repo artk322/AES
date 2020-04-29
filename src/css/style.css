@@ -12,3 +12,11 @@ code {
   width: 66%;
   height: 100%;
 }
+
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link:hover {
+  color: #e5e8ec !important;
+}

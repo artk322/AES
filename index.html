@@ -14,21 +14,26 @@
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
     <div class="container">
       <a class="navbar-brand" href="#">AES CIPHER</a>
-      <ul class="nav" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link" href="#ecryption">Encryption</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-      </ul>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" href="#ecryption">Encryption</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="container">
     <div id="ecryption" class="jumbotron my-5">
       <h2 class="h2 text-center mb-4">AES CIPHER ECB MODE</h2>
       <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-12 border-right">
           <form action="" class="form">
             <div class="form-group">
               <label class="h5" for="password">Key:</label>
@@ -48,11 +53,11 @@
             </div>
           </form>
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12 border-left">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-12 border-left mt-lg-0 mt-md-3">
           <form>
             <div class="form-group">
               <label class="h5" for="encodedtext">Encryption output:</label>
-              <textarea name="" id="encodedtext" rows="3" class="form-control bg-light" placeholder="" readonly></textarea>
+              <textarea name="" id="encodedtext" rows="3" class="form-control bg-light" placeholder=""></textarea>
             </div>
             <div class="form-group">
               <label class="h5" for="decodedtext">Decryption output:</label>
